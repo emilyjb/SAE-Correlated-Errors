@@ -1,4 +1,5 @@
 rm(list = ls(all = TRUE))
+##### Set the working directory to the appropriate folder that contains the repestfuns.R file:
 setwd("C:/Users/Emily/Documents/MECode2020/CorrelatedErrors")
 library("sae")
 source("repestfuns.R")
@@ -138,7 +139,7 @@ thetatilde2 <- Y - gamma2*vi
 
 #### Optimal weighted average of Yi and beta0 + beta1*Wi:
 
-gammaiopt <- (sig2bhat + betahat[2]^2*Psi11 - 2*betahat[2]*Psi12)/(Psi22 + sig2bhat + betahat[2]^2*Psi11 - 2*betahat[2]*Psi12)
+gammaiopt <- (sig2bhat + betahat[2]^2*Psi11 - betahat[2]*Psi12)/(Psi22 + sig2bhat + betahat[2]^2*Psi11 - 2*betahat[2]*Psi12)
 thetahatopt <- gammaiopt*Y + (1 - gammaiopt)*(betahat0 + betahat1*W)
 
 
