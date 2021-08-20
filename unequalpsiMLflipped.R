@@ -177,7 +177,6 @@ sig2bhatyl <- mean((Y - betahat0 - betahat1*W)^2 - Psi22  - betahat1^2*Psi11 )*n
 
 viyl <-   Y - beta0yl - beta1yl*W
 
-estsyl <- rbind(estsyl, c(beta0yl, beta1yl, sig2bhatyl))
 
 sig2bhatyl <- max(c(sig2bhatyl, 0))
  
@@ -185,7 +184,14 @@ gammayl <- (Psi22)/(sig2bhatyl + beta1yl^2*Psi11 + Psi22 )
 
 predyl <- Y - gammayl*viyl
 
+
+fityl <- FHme(Y~W, vardir = Psi22, var.x = Psi11)
+predyl <- fityl$eblup
+
+betahatyl <- fityl$fit$estcoef[,"beta"]
+
 predyls <- rbind(predyls, predyl)
+estsyl <- rbind(estsyl, c(betahatyl, fityl$fit$refvar))
 
 ##### FH treating covariate as fixed:
 dfFH <- data.frame(Y, W, vardir = Psi22)
