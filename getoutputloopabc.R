@@ -13,7 +13,7 @@ outmse <- c()
 #
 
 
-fnames <- paste("abrhosims/Config", 1:8, ".Rdata")
+fnames <- paste("abrhosimsUnequal/Config", 1:8, ".Rdata")
 
 
 iterfname <- 0
@@ -62,8 +62,8 @@ outfixpar <- cbind(rep(a,each = 3), rep(b, each = 3), rep(rho, each = 3) , outfi
 outmse <- cbind(a, b, rho, outmse)
 
 
-
-
+xtable(outfixpar, digits = 3)
+xtable(outmse, digits = 3)
 
 
 

@@ -1,7 +1,9 @@
 rm(list = ls(all = TRUE))
 ##### Set the working directory to the appropriate folder that contains the repestfuns.R file:
-setwd("C:/Users/Emily/Documents/MECode2020/CorrelatedErrors")
+setwd("C:/Users/Emily/Documents/GitHub/SAE-Correlated-Errors")
 library("sae")
+library("saeME")
+
 source("repestfuns.R")
 
 as <- c(0.25, 0.25, 0.25, 0.25, 0.75, 0.75, 0.75, 0.75)
@@ -156,35 +158,6 @@ print(paste(iter))
 
 #####  Ybarrah and Lohr Estimator 
 
-
-Xhatl <- cbind(1, W)
-Cmatl <- matrix(c(0, 0, 0, sum(Psi11)), nrow = 2, byrow = TRUE)
-denmatl <- t(Xhatl)%*%Xhatl - Cmatl
-numvecl <- t(Xhatl)%*%Y
-betahatl <- (solve(denmatl)%*%numvecl)[,1]
-
-#denb1yl <- sum(W^2 - Psi11)
-#numb1yl <- sum(W*Y)
-#beta1yl <- numb1yl/denb1yl
-#beta0yl <- mean(Y) - beta1yl*mean(W)
-
-beta1yl <- betahatl[2]
-beta0yl <- betahatl[1]
-
-
-
-sig2bhatyl <- mean((Y - betahat0 - betahat1*W)^2 - Psi22  - betahat1^2*Psi11 )*n/(n-2)
-
-viyl <-   Y - beta0yl - beta1yl*W
-
-
-sig2bhatyl <- max(c(sig2bhatyl, 0))
- 
-gammayl <- (Psi22)/(sig2bhatyl + beta1yl^2*Psi11 + Psi22 )
-
-predyl <- Y - gammayl*viyl
-
-
 fityl <- FHme(Y~W, vardir = Psi22, var.x = Psi11)
 predyl <- fityl$eblup
 
@@ -206,15 +179,14 @@ omegahatsfixed <- rbind(omegahatsfixed, c(betahatsfixed, sig2bhatfixed))
 mseFHs <- cbind(mseFHs, mseFH(dfFH$Y~dfFH$W, vardir = dfFH$vardir)$mse)
 
 source("msecorrelatederrorunequalpsiML.R")
-source("kimiteration.R")
-
+ 
 if(iter == 1000){break}
 
 }
 
 print(paste("config", outeriter))
 
-save.image(paste("abrhosims/Config", outeriter,".Rdata") )
+save.image(paste("abrhosimsUnequal/Config", outeriter,".Rdata") )
 
 if(outeriter == 8){break}
 
