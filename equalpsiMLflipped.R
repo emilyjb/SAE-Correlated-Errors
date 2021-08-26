@@ -125,15 +125,8 @@ repeat{
     
     sig2deltai <- betahat1^2*Psi11 + Psi22 - 2*betahat1*Psi12
     vi <- Y - betahat0 - betahat1*W
-    bhati <- sig2bhat/(sig2bhat + sig2deltai)*vi
-    
-    Z2sd <- (Y - betahat0)/betahat1
-    alpha1 <- (Psi22 + sig2bhat)/betahat1^2 - betahat1*Psi12
-    alpha2 <- -Psi12/betahat1 + Psi11
-    xtildei <- 1/(Psi11 + betahat1^(-2)*(Psi22 + sig2bhat) - 2/betahat1*Psi12)*(alpha1*W + alpha2*Z2sd)
-    thetatilde <- betahat0 + betahat1*xtildei + bhati
-    
-    
+   
+   
     gamma2 <- (Psi22 - betahat1*Psi12)/(betahat1^2*Psi11 + Psi22 - 2*betahat1*Psi12 +sig2bhat )
     thetatilde2 <- Y - gamma2*vi
     
@@ -147,7 +140,6 @@ repeat{
     thetahatopts <- rbind(thetahatopts, thetahatopt)
     
     
-    thetatildes <- rbind(thetatildes, thetatilde)
     thetatilde2s <- rbind(thetatilde2s, thetatilde2)
     Ys <- rbind(Ys, Y)
     thetas <- rbind(thetas, beta0 + beta1*x + b)
