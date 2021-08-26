@@ -3,5 +3,6 @@ This repository has code to implement the simulations in "Small area estimation 
 
 * The file "equalpsiMLflipped.R" is the main file that runs the simulations in the main document. 
 * The file "unequalpsiMLflipped.R" runs the simulations with unequal psi in the supplementary material. 
+* the file "unequalpsiMLflippedT.R" runs the simulations with unequal psi and the t distribution. 
 * The file "getoutputloopabc.R" gathers the output. 
 * The file "repestfuns.R" is sourced in the program "unequalpsiMLflipped.R"
