@@ -112,8 +112,9 @@ repeat{
     
     betahat0 <- betahat[1]; betahat1 <- betahat[2]
     
-    sig2bhat <- optimize(ladjML, c(0, 5), W, Y, Psi11, Psi12, Psi22, betahat)$minimum
+    initsig2b <- summary(lm(Y~W))$sigma^2
     
+    sig2bhat <- optim(initsig2b, ladjML,  lower = 0, upper = Inf, method = "L-BFGS-B", W=W, Y=Y, Psi11=Psi11, Psi12=Psi12, Psi22=Psi22, betahat=betahat)$par
     
     ##### sig2bhat <- mean((Y - betahat0 - betahat1*W)^2 - Psi22  - betahat1^2*Psi11 + 2*betahat1*Psi12)*n/(n-2)
     
@@ -177,7 +178,7 @@ repeat{
   
   print(paste("config", outeriter))
   
-  save.image(paste("abrhosimsEqual/Config", outeriter,".Rdata") )
+  save.image(paste("abrhosimsEqualRev/Config", outeriter,".Rdata") )
   
   if(outeriter == 8){break}
   
