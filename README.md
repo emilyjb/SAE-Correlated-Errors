@@ -7,5 +7,3 @@ This repository has code to implement the simulations in "Small area estimation 
 * The file "unequalpsiMLflippedMultiCov.R" runs the simulations with unequal psi. 
 * The file "getoutputloopabc.R" gathers the output. 
 * The remaining files are sourced in the above programs. 
-
-Note: For the simulations presented in the main manuscript, a slightly different optimization procedure was used to estimate the random effect variance. This did not impact the main results. 
