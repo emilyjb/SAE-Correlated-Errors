@@ -1,7 +1,7 @@
 # SAE-Correlated-Errors
 
-Paper title: "An application of a small area procedure with correlation between measurement error and sampling error to the Conservation Effects Assessment Project"
-Authors: Emily Berg and Sepideh Mosaferi
+**Paper title:** "An application of a small area procedure with correlation between measurement error and sampling error to the Conservation Effects Assessment Project"
+**Authors:** Emily Berg and Sepideh Mosaferi
 
 This repository has code to implement the simulations for the above paper. The paper develops a small area estimation procedure for a model in which the measurement error in the covariate is correlated with the sampling error in the response. The code in this repository compares the method proposed in the paper to several alternative predictors. We do not use a fixed seed, so the results will be similar but not identical to those reported. 
 
