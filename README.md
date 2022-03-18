@@ -9,6 +9,6 @@ This repository has code to implement the simulations for the above paper. The p
 * The file "equalpsiMLflipped.R" runs the simulation with equal psi. 
 * The file "unequalpsiMLflipped.R" runs the simulations with unequal psi. 
 * The file "unequalpsiMLflippedTMod.R" runs the simulations t or chi-square distributions.
-* The file "unequalpsiMLflippedMultiCov.R" runs the simulations with unequal psi. 
+* The file "unequalpsiMLflippedMultiCov.R" runs the simulations with a bivariate covariate. 
 * The file "getoutputloopabc.R" gathers the output. 
 * The remaining files are sourced in the above programs. 
