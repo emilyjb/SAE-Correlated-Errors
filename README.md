@@ -1,5 +1,9 @@
 # SAE-Correlated-Errors
-This repository has code to implement the simulations in "Small area estimation for the Fay-Herriot model in which the measurement error is correlated with the sampling error in the response."  The code in this repository implements the simulations that compare alternative predictors for a small area model in which the sampling error in the response is correlated with the measurement error in the covariate. We do not use a fixed seed, so the results will be similar but not identical to those reported. 
+
+Paper title: "An application of a small area procedure with correlation between measurement error and sampling error to the Conservation Effects Assessment Project"
+Authors: Emily Berg and Sepideh Mosaferi
+
+This repository has code to implement the simulations for the above paper. The paper develops a small area estimation procedure for a model in which the measurement error in the covariate is correlated with the sampling error in the response. The code in this repository compares the method proposed in the paper to several alternative predictors. We do not use a fixed seed, so the results will be similar but not identical to those reported. 
 
 * The file "equalpsiMLflipped.R" runs the simulation with equal psi. 
 * The file "unequalpsiMLflipped.R" runs the simulations with unequal psi. 
